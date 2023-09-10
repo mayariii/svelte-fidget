@@ -1,16 +1,24 @@
-<script>
-	import Spinner from './fidgets/Spinner.svelte';
-</script>
-
 <div class="h-screen w-screen">
 	<div class="flex flex-col gap-8 items-center justify-center h-full text-white">
-		<h1 class="text-3xl">svelte fidget</h1>
+		<a href="/" class="text-3xl">svelte fidget</a>
 
-		<p class="text-violet-300/80 text-sm max-w-[35ch] text-center">
-			swipe along the x-axis to spin manually or click the button for auto (infinite) spin ✨
-		</p>
-
-		<Spinner />
+		<div class="flex gap-2">
+			<a
+				href="/popper"
+				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
+				>popper</a
+			>
+			<a
+				href="/spinner"
+				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
+				>spinner</a
+			>
+			<a
+				href="/clack"
+				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
+				>clack</a
+			>
+		</div>
 
 		<p class="text-gray-500 text-xs">
 			made by <a href="https://mayari.io" target="_blank" class="text-violet-500">mayari.io</a>

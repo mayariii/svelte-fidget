@@ -73,13 +73,13 @@
 		// update motion
 		const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
 		const newCurrentAngle = clientX - startX;
-    const scalingFactor = 0.2;
+		const scalingFactor = 0.2;
 
 		let delta = (newCurrentAngle - lastAngle) * scalingFactor;
 		spinSpeed = delta;
 		angle += delta;
 		lastAngle = newCurrentAngle;
-    isDragSpinning = true
+		isDragSpinning = true;
 	}
 
 	function handleMouseUp() {
@@ -110,7 +110,7 @@
 		angle += spinSpeed;
 
 		// decayFactor applied to spinSpeed to gradually slow it down
-		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 3);
+		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 2);
 		spinSpeed *= decayFactor;
 
 		decelerationTimeout = setTimeout(() => {
