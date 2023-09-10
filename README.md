@@ -1,38 +1,10 @@
-# create-svelte
+# A is for ADHD - svelte-fidget
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+[blog post](https://www.mayari.io/blog/a-is-for-adhd)
+[live preview](https://svelte-fidget.vercel.app/)
 
-## Creating a project
+![image](https://github.com/mayariii/svelte-fidget/assets/70478809/9574eb7c-41ee-43dc-8177-8708b582af02)
 
-If you're seeing this, you've probably already done this step. Congrats!
+![image](https://github.com/mayariii/svelte-fidget/assets/70478809/36ee1b23-0550-4754-9669-5f54d337f6eb)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![image](https://github.com/mayariii/svelte-fidget/assets/70478809/2ee92596-7fb9-46b5-a1d5-767c75677310)
