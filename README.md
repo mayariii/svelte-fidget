@@ -1,8 +1,8 @@
 # A is for ADHD - svelte-fidget
 
-[blog post](https://www.mayari.io/blog/a-is-for-adhd)
+✨[blog post](https://www.mayari.io/blog/a-is-for-adhd)
 
-[live preview](https://svelte-fidget.vercel.app/)
+✨[live preview](https://svelte-fidget.vercel.app/)
 
 ![image](https://github.com/mayariii/svelte-fidget/assets/70478809/9574eb7c-41ee-43dc-8177-8708b582af02)
 
