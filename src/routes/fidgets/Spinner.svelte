@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Spinner from '$lib/assets/fidget3.png';
+	import Spinner from '$lib/assets/fidget2.png';
 
 	let angle = 0,
 		autoSpinAngle = 0;
@@ -14,7 +14,7 @@
 		currentAngle = 0,
 		lastAngle = 0,
 		spinSpeed = 5,
-		autoSpinSpeed = 15;
+		autoSpinSpeed = 10;
 
 	const INTERVAL_REFRESH_RATE = 16; // approx 60fps
 
@@ -23,6 +23,7 @@
 	$: spinSpeed = delta;
 	$: angle += delta;
 	$: lastAngle = currentAngle;
+  
 
 	function toggleAutoSpin() {
 		// stop any ongoing spins
@@ -72,12 +73,14 @@
 
 		// update motion
 		const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
-
 		const newCurrentAngle = clientX - startX;
-		let delta = -(newCurrentAngle - lastAngle);
+    const scalingFactor = 0.2;
+
+		let delta = (newCurrentAngle - lastAngle) * scalingFactor;
 		spinSpeed = delta;
 		angle += delta;
 		lastAngle = newCurrentAngle;
+    isDragSpinning = true
 	}
 
 	function handleMouseUp() {
@@ -108,7 +111,7 @@
 		angle += spinSpeed;
 
 		// decayFactor applied to spinSpeed to gradually slow it down
-		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 2);
+		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 4);
 		spinSpeed *= decayFactor;
 
 		decelerationTimeout = setTimeout(() => {
