@@ -1,5 +1,17 @@
 <script lang="ts">
-	import Spinner from '$lib/assets/fidget2.png';
+	import Spinner from '$lib/assets/spinner.png';
+	import Spinner2 from '$lib/assets/spinner2.png';
+	import Spinner3 from '$lib/assets/spinner3.png';
+	import Spinner4 from '$lib/assets/spinner4.png';
+	import Spinner5 from '$lib/assets/spinner5.png';
+	import Spinner6 from '$lib/assets/spinner6.png';
+	import Spinner7 from '$lib/assets/spinner7.png';
+	import Spinner8 from '$lib/assets/spinner8.png';
+	import Spinner9 from '$lib/assets/spinner9.png';
+
+	let spinners = [Spinner, Spinner2, Spinner3, Spinner4, Spinner5,Spinner6, Spinner7, Spinner8, Spinner9];
+
+	let currentSpinner = Spinner;
 
 	let angle = 0,
 		autoSpinAngle = 0;
@@ -119,17 +131,29 @@
 	}
 </script>
 
+
+
 <button
-	class="w-[200px] h-[200px] transition-transform duration-200 ease-linear cursor-[grab]"
+	class="w-[150px] h-[150px] transition-transform duration-200 ease-linear cursor-[grab]"
 	style={`transform: rotate(${isAutoSpinning ? autoSpinAngle : angle}deg); cursor: ${
 		isDragging ? 'grabbing' : 'grab'
 	}`}
 	on:mousedown={handleMouseDown}
 	on:touchstart={handleMouseDown}
 >
-	<img src={Spinner} class="w-full h-full" alt="spinner" />
+	<img src={currentSpinner} class="w-full h-full" alt="spinner" />
 </button>
 
 <button on:click={toggleAutoSpin} class="bg-violet-400 bg-opacity-30 px-3 py-1 rounded-full">
 	{isCurrentlySpinning ? 'stop' : 'start'} spinning
 </button>
+<div class="flex flex-col gap-2 items-center">
+<p class="text-sm text-gray-300/80">all the spinners!! try them out :)</p>
+<div class="grid grid-cols-3 gap-2">
+	{#each spinners as spinner}
+		<button class="bg-gray-800 p-2 rounded-full" on:click={() => currentSpinner = spinner}>
+			<img src={spinner} alt="Choose spinner" class="w-10 h-10" />
+		</button>
+	{/each}
+</div>
+</div>
