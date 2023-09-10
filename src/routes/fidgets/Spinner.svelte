@@ -23,7 +23,6 @@
 	$: spinSpeed = delta;
 	$: angle += delta;
 	$: lastAngle = currentAngle;
-  
 
 	function toggleAutoSpin() {
 		// stop any ongoing spins
@@ -111,7 +110,7 @@
 		angle += spinSpeed;
 
 		// decayFactor applied to spinSpeed to gradually slow it down
-		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 4);
+		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 3);
 		spinSpeed *= decayFactor;
 
 		decelerationTimeout = setTimeout(() => {
