@@ -40,7 +40,7 @@
 			// angle updates at every interval to make it spin
 			spinInterval = setInterval(() => {
 				autoSpinAngle += autoSpinSpeed;
-        angle = autoSpinAngle; // sync back to autoSpinAngle in case it gets stopped
+				angle = autoSpinAngle; // sync back to autoSpinAngle in case it gets stopped
 			}, INTERVAL_REFRESH_RATE);
 			isAutoSpinning = true;
 		} else {
@@ -48,26 +48,32 @@
 			autoSpinAngle = angle; // sync back to angle so that it stays where it stopped
 		}
 	}
-  
 
-	function handleMouseDown(event: MouseEvent) {
+	function handleMouseDown(event: MouseEvent | TouchEvent) {
 		// start drag
 		isDragging = true;
 		event.preventDefault();
 		clearInterval(spinInterval);
 		isAutoSpinning = false;
-		startX = event.clientX - currentAngle;
+
+		const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+
+		startX = clientX - currentAngle;
 		isDragSpinning = true;
 
 		document.addEventListener('mousemove', handleMouseMove);
 		document.addEventListener('mouseup', handleMouseUp);
+		document.addEventListener('touchmove', handleMouseMove);
+		document.addEventListener('touchend', handleMouseUp);
 	}
 
-	function handleMouseMove(event: MouseEvent) {
+	function handleMouseMove(event: MouseEvent | TouchEvent) {
 		if (!isDragging) return;
 
 		// update motion
-		const newCurrentAngle = event.clientX - startX;
+		const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+
+		const newCurrentAngle = clientX - startX;
 		let delta = -(newCurrentAngle - lastAngle);
 		spinSpeed = delta;
 		angle += delta;
@@ -117,6 +123,7 @@
 		isDragging ? 'grabbing' : 'grab'
 	}`}
 	on:mousedown={handleMouseDown}
+	on:touchstart={handleMouseDown}
 >
 	<img src={Spinner} class="w-full h-full" alt="spinner" />
 </button>
