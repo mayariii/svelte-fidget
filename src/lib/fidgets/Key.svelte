@@ -24,7 +24,7 @@
 				isPressed ? clickOffSound.play() : clickOnSound.play();
 				isPressed = !isPressed;
 			}}>
-			<div class="bg-gray-800 p-2 rounded">isPressed ? 'clack' : 'click'</div>
+			<div class="bg-gray-800 p-2 rounded">{isPressed ? 'clack' : 'click'}</div>
 		</button>
 	{/each}
 </div>
