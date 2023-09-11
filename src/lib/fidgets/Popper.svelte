@@ -26,8 +26,7 @@
 				if (!bubble.popped) popSound.play();
 				bubble.popped = true;
 			}}
-			disabled={bubble.popped}
-		>
+			disabled={bubble.popped}>
 			{#if bubble.popped}
 				<div in:scale={{ duration: 300 }} class="text-xl bg-blue-400 w-14 h-14 rounded-full" />
 			{/if}

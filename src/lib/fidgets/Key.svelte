@@ -23,13 +23,8 @@
 			on:click={() => {
 				isPressed ? clickOffSound.play() : clickOnSound.play();
 				isPressed = !isPressed;
-			}}
-		>
-			{#if isPressed}
-				<div class="bg-gray-800 p-2 rounded">clack</div>
-			{:else}
-				<div class="bg-gray-900 p-2 rounded">click</div>
-			{/if}
+			}}>
+			<div class="bg-gray-800 p-2 rounded">isPressed ? 'clack' : 'click'</div>
 		</button>
 	{/each}
 </div>

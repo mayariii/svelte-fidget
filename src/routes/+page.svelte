@@ -6,18 +6,15 @@
 			<a
 				href="/popper"
 				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
-				>popper</a
-			>
+				>popper</a>
 			<a
 				href="/spinner"
 				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
-				>spinner</a
-			>
+				>spinner</a>
 			<a
 				href="/clack"
 				class="bg-violet-500/20 hover:bg-violet-400/50 transition-colors duration-500 rounded-md py-1 px-2"
-				>clack</a
-			>
+				>clack</a>
 		</div>
 
 		<p class="text-gray-500 text-xs">

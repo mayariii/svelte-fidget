@@ -9,7 +9,17 @@
 	import Spinner8 from '$lib/assets/spinner8.png';
 	import Spinner9 from '$lib/assets/spinner9.png';
 
-	let spinners = [Spinner, Spinner2, Spinner3, Spinner4, Spinner5,Spinner6, Spinner7, Spinner8, Spinner9];
+	let spinners = [
+		Spinner,
+		Spinner2,
+		Spinner3,
+		Spinner4,
+		Spinner5,
+		Spinner6,
+		Spinner7,
+		Spinner8,
+		Spinner9
+	];
 
 	let currentSpinner = Spinner;
 
@@ -121,7 +131,6 @@
 		// update angle to rotate the spinner
 		angle += spinSpeed;
 
-		// decayFactor applied to spinSpeed to gradually slow it down
 		const decayFactor = 0.7 + 0.3 * Math.exp(-Math.abs(spinSpeed) / 2);
 		spinSpeed *= decayFactor;
 
@@ -131,29 +140,30 @@
 	}
 </script>
 
-
-
+<!-- spinner -->
 <button
 	class="w-[150px] h-[150px] transition-transform duration-200 ease-linear cursor-[grab]"
 	style={`transform: rotate(${isAutoSpinning ? autoSpinAngle : angle}deg); cursor: ${
 		isDragging ? 'grabbing' : 'grab'
 	}`}
 	on:mousedown={handleMouseDown}
-	on:touchstart={handleMouseDown}
->
+	on:touchstart={handleMouseDown}>
 	<img src={currentSpinner} class="w-full h-full" alt="spinner" />
 </button>
 
+<!-- toggle spin button -->
 <button on:click={toggleAutoSpin} class="bg-violet-400 bg-opacity-30 px-3 py-1 rounded-full">
 	{isCurrentlySpinning ? 'stop' : 'start'} spinning
 </button>
+
+<!-- spinner selection -->
 <div class="flex flex-col gap-2 items-center">
-<p class="text-sm text-gray-300/80">all the spinners!! try them out :)</p>
-<div class="grid grid-cols-3 gap-2">
-	{#each spinners as spinner}
-		<button class="bg-gray-800 p-2 rounded-full" on:click={() => currentSpinner = spinner}>
-			<img src={spinner} alt="Choose spinner" class="w-10 h-10" />
-		</button>
-	{/each}
-</div>
+	<p class="text-sm text-gray-300/80">all the spinners!! try them out :)</p>
+	<div class="grid grid-cols-3 gap-2">
+		{#each spinners as spinner}
+			<button class="bg-gray-800 p-2 rounded-full" on:click={() => (currentSpinner = spinner)}>
+				<img src={spinner} alt="Choose spinner" class="w-10 h-10" />
+			</button>
+		{/each}
+	</div>
 </div>
